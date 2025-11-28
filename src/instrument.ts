@@ -5,6 +5,9 @@ Sentry.init({
   dsn: "https://c2366a90b36c04ff73ec58dc97ee782e@o1.ingest.us.sentry.io/4510442378887168",
 
   enableLogs: true,
+  integrations: [
+    Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
+  ],
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for tracing.

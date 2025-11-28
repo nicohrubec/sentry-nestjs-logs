@@ -17,4 +17,10 @@ export class AppController {
     Sentry.logger.error('Test error!');
     throw new Error('Test error');
   }
+
+  @Get('console-log')
+  getConsoleLog(): string {
+    console.log('Console log!');
+    return 'Console log!';
+  }
 }
