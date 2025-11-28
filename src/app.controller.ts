@@ -1,10 +1,11 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as Sentry from '@sentry/nestjs';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+  private readonly logger = new Logger(AppController.name);
 
   @Get()
   getHello(): string {
@@ -22,5 +23,11 @@ export class AppController {
   getConsoleLog(): string {
     console.log('Console log!');
     return 'Console log!';
+  }
+
+  @Get('nest-log')
+  getNestLog(): string {
+    this.logger.log('Nest log!');
+    return 'Nest log!';
   }
 }
